@@ -1,0 +1,7 @@
+conectarte per samba al usuari i contrasenya. 
+
+
+
+RD_User
+
+RD_P@ssW0rD
